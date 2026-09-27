@@ -1,6 +1,6 @@
 // Ganti semua "#" dengan link asli komunitas.
 export const SITE_LINKS = {
-  discord: "#",
+  discord: "https://discord.gg/D7Uysvqm4y",
   tiktok: "#",
   youtube: "#",
   whatsapp: "#",

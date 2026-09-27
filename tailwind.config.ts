@@ -14,6 +14,16 @@ const config: Config = {
       },
       fontFamily: {
         mono: ["var(--font-jbmono)", "ui-monospace", "monospace"],
+        display: ["var(--font-display)", "var(--font-jbmono)", "sans-serif"],
+      },
+      keyframes: {
+        marquee: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-50%)" },
+        },
+      },
+      animation: {
+        marquee: "marquee 22s linear infinite",
       },
     },
   },

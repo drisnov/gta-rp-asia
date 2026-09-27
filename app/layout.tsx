@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono } from "next/font/google";
+import { Anton, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+
+const display = Anton({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-display",
+  display: "swap",
+});
 
 const jbmono = JetBrains_Mono({
   subsets: ["latin"],
@@ -18,7 +25,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="id">
-      <body className={`${jbmono.variable} font-mono bg-asphalt text-paper antialiased`}>
+      <body className={`${display.variable} ${jbmono.variable} font-mono bg-asphalt text-paper antialiased`}>
         {children}
       </body>
     </html>

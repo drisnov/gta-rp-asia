@@ -5,6 +5,7 @@ import Image from "next/image";
 import Logo from "../components/Logo";
 import HeroArt from "../components/HeroArt";
 import Reveal from "../components/Reveal";
+import { AuthProvider, useAuth } from "../components/AuthContext";
 import Chatroom from "../components/Chatroom";
 import { SITE_LINKS, type Lang } from "../lib/site";
 import { getDict } from "../lib/dict";
@@ -25,7 +26,40 @@ const GALLERY_GRAD = [
 const DIV_IMGS = ["/hero-sa.jpg", "/hero-fivem.jpg", "/hero-sa.jpg"];
 const DIV_WORDS = ["SA-MP", "FIVEM", "HYBRID"];
 
+function AuthButtons({ lang }: { lang: Lang }) {
+  const { user, nick, logout } = useAuth();
+  if (user) {
+    return (
+      <span className="hidden items-center gap-2 sm:flex">
+        <span className="max-w-24 truncate text-[12px] font-bold text-blush">@{nick}</span>
+        <button
+          onClick={logout}
+          className="border border-line px-2.5 py-1.5 text-[12px] font-bold text-muted hover:text-paper"
+        >
+          {lang === "id" ? "Keluar" : "Logout"}
+        </button>
+      </span>
+    );
+  }
+  return (
+    <a
+      href="#chat"
+      className="hidden border border-line px-3.5 py-2 text-[12px] font-bold text-paper hover:border-muted sm:block"
+    >
+      {lang === "id" ? "Masuk" : "Login"}
+    </a>
+  );
+}
+
 export default function Page() {
+  return (
+    <AuthProvider>
+      <Site />
+    </AuthProvider>
+  );
+}
+
+function Site() {
   const [lang, setLang] = useState<Lang>("id");
   const [div, setDiv] = useState(0);
   const t = getDict(lang);
@@ -72,6 +106,7 @@ export default function Page() {
             <a href="#chat" className="hover:text-paper">{t.nav.chat}</a>
           </nav>
           <div className="flex items-center gap-2">
+            <AuthButtons lang={lang} />
             <div className="flex border border-line text-[12px] font-bold">
               {(["id", "en"] as Lang[]).map((l) => (
                 <button

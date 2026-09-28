@@ -147,7 +147,7 @@ export default function Chatroom({ lang }: { lang: Lang }) {
         )}
         {msgs.map((m) => (
           <div key={m.id} className="px-5 py-2.5 text-[12px] leading-relaxed">
-            <span className="font-bold text-amber">{m.username}</span>{" "}
+            <span className="font-bold text-blush">{m.username}</span>{" "}
             <span className="text-muted">
               {new Date(m.created_at).toLocaleTimeString([], {
                 hour: "2-digit",
@@ -166,7 +166,7 @@ export default function Chatroom({ lang }: { lang: Lang }) {
             onChange={(e) => setNick(e.target.value)}
             placeholder={t.nickPh}
             maxLength={20}
-            className="border border-line bg-asphalt px-3 py-2.5 text-[12px] text-paper placeholder:text-muted focus:border-amber focus:outline-none sm:w-44"
+            className="border border-line bg-asphalt px-3 py-2.5 text-[12px] text-paper placeholder:text-muted focus:border-blush focus:outline-none sm:w-44"
           />
           <input
             value={text}
@@ -176,17 +176,17 @@ export default function Chatroom({ lang }: { lang: Lang }) {
             }}
             placeholder={t.msgPh}
             maxLength={500}
-            className="flex-1 border border-line bg-asphalt px-3 py-2.5 text-[12px] text-paper placeholder:text-muted focus:border-amber focus:outline-none"
+            className="flex-1 border border-line bg-asphalt px-3 py-2.5 text-[12px] text-paper placeholder:text-muted focus:border-blush focus:outline-none"
           />
           <button
             onClick={send}
             disabled={sending || cooldown > 0}
-            className="bg-amber px-5 py-2.5 text-[12px] font-bold text-asphalt hover:brightness-110 disabled:opacity-50"
+            className="bg-blush px-5 py-2.5 text-[12px] font-bold text-asphalt hover:brightness-110 disabled:opacity-50"
           >
             {sending ? t.sending : cooldown > 0 ? t.cooldown(cooldown) : t.send}
           </button>
         </div>
-        {status && <p className="mt-2 text-[12px] text-amber">{status}</p>}
+        {status && <p className="mt-2 text-[12px] text-blush">{status}</p>}
         <p className="mt-2 text-[11px] text-muted">{t.desc}</p>
       </div>
     </div>

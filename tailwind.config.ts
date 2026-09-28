@@ -5,12 +5,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        asphalt: "#0B0D10",
-        panel: "#111417",
-        line: "#232A31",
-        paper: "#E8E6DF",
-        muted: "#9AA3AD",
-        amber: "#F5A524",
+        asphalt: "#0e0a12",
+        panel: "#181222",
+        line: "#2e2238",
+        paper: "#f4eee3",
+        muted: "#ac9fb6",
+        blush: "#ff5d8f",
+        candy: "#ffb3c9",
       },
       fontFamily: {
         mono: ["var(--font-jbmono)", "ui-monospace", "monospace"],

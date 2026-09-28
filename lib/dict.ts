@@ -126,7 +126,7 @@ const dict = {
     },
     footer: {
       line: "GTA ROLEPLAY ASIA — komunitas penggemar. Tidak berafiliasi dengan Rockstar Games / Take-Two Interactive.",
-      made: "Dibangun dengan Next.js + Supabase.",
+      made: "Dibangun dengan Next.js + Supabase. Foto: Unsplash.",
     },
   },
   en: {
@@ -254,7 +254,7 @@ const dict = {
     },
     footer: {
       line: "GTA ROLEPLAY ASIA — fan community. Not affiliated with Rockstar Games / Take-Two Interactive.",
-      made: "Built with Next.js + Supabase.",
+      made: "Built with Next.js + Supabase. Photos: Unsplash.",
     },
   },
 } as const;

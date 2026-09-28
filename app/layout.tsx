@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Baloo_2, JetBrains_Mono } from "next/font/google";
+import { Metal_Mania, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const display = Baloo_2({
+const display = Metal_Mania({
   subsets: ["latin"],
-  weight: ["600", "700", "800"],
+  weight: ["400"],
   variable: "--font-display",
   display: "swap",
 });

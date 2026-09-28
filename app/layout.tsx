@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Anton, JetBrains_Mono } from "next/font/google";
+import { Baloo_2, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const display = Anton({
+const display = Baloo_2({
   subsets: ["latin"],
-  weight: ["400"],
+  weight: ["600", "700", "800"],
   variable: "--font-display",
   display: "swap",
 });

@@ -56,7 +56,7 @@ export default function Chatroom({ lang }: { lang: Lang }) {
   const [sending, setSending] = useState(false);
   const [cooldown, setCooldown] = useState(0);
   const [envOk, setEnvOk] = useState(true);
-  const bottomRef = useRef<HTMLDivElement>(null);
+  const boxRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const sb = getSupabase();
@@ -93,8 +93,10 @@ export default function Chatroom({ lang }: { lang: Lang }) {
     };
   }, [t]);
 
+  // Scroll cuma di dalam kotak chat — jangan pernah gerakin halaman.
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+    const box = boxRef.current;
+    if (box) box.scrollTop = box.scrollHeight;
   }, [msgs.length]);
 
   useEffect(() => {
@@ -141,7 +143,7 @@ export default function Chatroom({ lang }: { lang: Lang }) {
 
   return (
     <div className="border border-line bg-panel">
-      <div className="h-72 overflow-y-auto divide-y divide-line">
+      <div ref={boxRef} className="h-72 overflow-y-auto divide-y divide-line">
         {msgs.length === 0 && (
           <p className="px-5 py-4 text-[12px] text-muted">{t.empty}</p>
         )}
@@ -157,7 +159,6 @@ export default function Chatroom({ lang }: { lang: Lang }) {
             <p className="text-paper break-words">{m.text}</p>
           </div>
         ))}
-        <div ref={bottomRef} />
       </div>
       <div className="border-t border-line p-4">
         <div className="flex flex-col gap-2 sm:flex-row">

@@ -68,7 +68,6 @@ export default function Page() {
       {/* HERO */}
       <section className="relative overflow-hidden border-b border-line">
         <HeroArt className="absolute inset-0 h-full w-full opacity-40 md:opacity-35" />
-        <div className="bg-grid absolute inset-0" />
         <div className="bg-fade-b absolute inset-0" />
         <div className="relative mx-auto max-w-6xl px-4 pb-14 pt-16 md:pb-20 md:pt-24">
           <p className="mb-5 inline-block border border-line bg-panel px-2.5 py-1 text-[11px] font-bold tracking-[0.2em] text-muted">
